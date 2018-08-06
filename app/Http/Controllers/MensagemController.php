@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Atividade;
+use App\Mensagem;
 use Illuminate\Http\Request;
 
-class AtividadeController extends Controller
+class MensagemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class AtividadeController extends Controller
      */
     public function index()
     {
-        $listaAtividades = Atividade::all();
-        return view('atividade.list',['atividades' => $listaAtividades]);
+        $mensagens = Mensagem::all();
+        return view('mensagem.list',['mensagens' => $mensagens]);
     }
 
     /**
@@ -42,22 +42,22 @@ class AtividadeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Atividade  $atividade
+     * @param  \App\Mensagem  $mensagem
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $atividade = Atividade::find($id);
-        return view('atividade.show',['atividade' => $atividade]);
+        $mensagem = Mensagem::find($id);
+        return view('mensagem.show',['mensagem'=>$mensagem]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Atividade  $atividade
+     * @param  \App\Mensagem  $mensagem
      * @return \Illuminate\Http\Response
      */
-    public function edit(Atividade $atividade)
+    public function edit(Mensagem $mensagem)
     {
         //
     }
@@ -66,10 +66,10 @@ class AtividadeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Atividade  $atividade
+     * @param  \App\Mensagem  $mensagem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Atividade $atividade)
+    public function update(Request $request, Mensagem $mensagem)
     {
         //
     }
@@ -77,10 +77,10 @@ class AtividadeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Atividade  $atividade
+     * @param  \App\Mensagem  $mensagem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Atividade $atividade)
+    public function destroy(Mensagem $mensagem)
     {
         //
     }
