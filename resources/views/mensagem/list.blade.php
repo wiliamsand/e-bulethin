@@ -15,7 +15,7 @@
   <p>Texto: <b>{{$mensagem->texto}}</b></p>
 	<p>Autor: <b>{{$mensagem->autor}}</b></p>
   <p>Ações: 
-    <a href="/mensagens/{{$mensagem->id}}">Ver Mais</a>
+    <a href="/mensagens/{{$mensagem->id}}">Sobre</a>
     <a href="/mensagens/{{$mensagem->id}}/edit">Editar</a> 
     <a href="/mensagens/{{$mensagem->id}}/delete">Deletar</a>
   </p>
