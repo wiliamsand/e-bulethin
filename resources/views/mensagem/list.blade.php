@@ -23,5 +23,5 @@
 @endforeach
 
 <br>
-<p><a href="/mensagens/create">Criar novo registro</a></p>
+<p><a href="/mensagens/create">Criar nova mensagem</a></p>
 

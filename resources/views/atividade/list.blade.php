@@ -23,5 +23,5 @@
 @endforeach
 
 <br>
-<p><a href="/atividades/create">Criar novo registro</a></p>
+<p><a href="/atividades/create">Criar nova atividade</a></p>
 
