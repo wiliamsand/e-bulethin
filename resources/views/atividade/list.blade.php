@@ -1,6 +1,7 @@
+<center>
 <h1>Lista de Atividades</h1>
-<hr>
-
+<br><br>
+</center>
   <!-- EXIBE MENSAGENS DE SUCESSO -->
   @if(\Session::has('success'))
 	<div class="container">
@@ -11,17 +12,15 @@
   @endif
 
 @foreach($atividades as $atividade)
-	<h3>Título: <b><a href="/atividades/{{$atividade->id}}">{{$atividade->title}}</a></b></h3>
-  <p>Agendado para: <b>{{\Carbon\Carbon::parse($atividade->scheduledto)->format('d/m/Y h:m')}}</b></p>
-	<p>Descrição: <b>{{$atividade->description}}</b></p>
-  <p>Ações: 
-    <a href="/atividades/{{$atividade->id}}">Sobre</a>
-    <a href="/atividades/{{$atividade->id}}/edit">Editar</a> 
-    <a href="/atividades/{{$atividade->id}}/delete">Deletar</a>
+	<b>Título: </b><a href="/atividades/{{$atividade->id}}">{{$atividade->title}}</a>
+  <p><b>Agendado para: </b>{{\Carbon\Carbon::parse($atividade->scheduledto)->format('d/m/Y h:m')}}</p>
+	<p><b>Descrição: </b>{{$atividade->description}}</p>
+  <p><b>Ações: </b>
+    <b><a href="/atividades/{{$atividade->id}}">Sobre</a></b>
+    <b><a href="/atividades/{{$atividade->id}}/edit">Editar</a></b> 
+    <b><a href="/atividades/{{$atividade->id}}/delete">Deletar</a></b>
   </p>
-	<br>
 @endforeach
 
-<br>
 <p><a href="/atividades/create">Criar nova atividade</a></p>
 
