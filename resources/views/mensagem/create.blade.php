@@ -1,4 +1,4 @@
-<h1>Formulário de Cadastro de Mensagens</h1>
+<h1>Formulário de Cadastro das Mensagens</h1>
 <hr>
 
 <!-- EXIBE MENSAGENS DE ERROS -->
