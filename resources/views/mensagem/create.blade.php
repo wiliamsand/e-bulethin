@@ -1,7 +1,7 @@
-<center><h1>Formulário de Cadastro de Mensagens</h1></center>
+<h1>Formulário de Cadastro de Mensagens</h1>
 <hr>
 
-  <!-- EXIBE MENSAGENS DE ERROS -->
+<!-- EXIBE MENSAGENS DE ERROS -->
   @if ($errors->any())
 	<div class="container">
 	  <div class="alert alert-danger">
@@ -14,10 +14,19 @@
 	</div>
   @endif
 
+
 <form action="/mensagens" method="post">
-	{{ csrf_field() }}
-	Título: 		<input type="text" name="titulo"><br><br>
-	Texto:		<input type="text" name="texto"><br><br>
-	Autor:  <input type="text" name="autor"><br><br>
-	<input type="submit" value="Salvar">
+{{csrf_field() }}
+
+Título: <input type="text" name="titulo"> <br><br>
+Descrição: <input type="text" name="texto"> <br><br>
+Autor: <input type="text" name="autor"> <br><br>
+Atividade: 	
+<select name='atividade_id'>
+	@foreach($atividades as $atividade)
+		<option value="{{$atividade->id}}">{{$atividade->title}}</option>
+	@endforeach
+</select><br>
+
+<input type="submit" value="Salvar">
 </form>
