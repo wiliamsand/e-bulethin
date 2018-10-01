@@ -23,10 +23,13 @@
 @endauth
 	<br>
 @endforeach
+{{ $mensagens->links() }}
+
 @auth
 <br>
 <p><a href="/mensagens/create">Criar nova mensagem</a></p>
 @endauth
+
 
 
 

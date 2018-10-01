@@ -25,8 +25,10 @@
   </p>
 @endauth
 @endforeach
-<br>
 
+{{ $atividades->links() }}
+
+<br>
 @auth
 <p><a href="/atividades/create">Criar nova atividade</a></p>
 @endauth

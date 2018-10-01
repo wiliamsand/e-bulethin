@@ -20,8 +20,10 @@ class AtividadeController extends Controller
         }else{
             //retorna todas as atividades
             $listaAtividades = Atividade::all();
+
         }
-        
+                
+        $listaAtividades = Atividade::paginate(1);
         return view('atividade.list',['atividades' => $listaAtividades]);
     }
     /**
