@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <h1>Formulário de Cadastro de Atividade</h1>
 <hr>
 
@@ -21,3 +23,4 @@
 	Agendado para:  <input type="datetime-local" name="scheduledto">   <br>
 	<input type="submit" value="Salvar">
 </form>
+@endsection

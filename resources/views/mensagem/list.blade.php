@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <h1>Lista de Mensagem</h1>
 <hr>
 
@@ -30,16 +32,5 @@
 <p><a href="/mensagens/create">Criar nova mensagem</a></p>
 @endauth
 
+@endsection
 
-
-
-<button class="aaa"><a class="aaa" href="/login">Login</a></button>
-<button class="aaa"><a class="aaa" href="/register">Register</a></button>
-<style type="text/css">
-  .aaa{
-    font-size: 16px;
-    background-color: #007bff;
-    color:white;
-    text-decoration: none
-  }
-</style>
