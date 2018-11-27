@@ -18,24 +18,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/atividades', 'AtividadeController@index');
-Route::get('/mensagens', 'MensagemController@index');
+Route::get('/boletim', 'BoletimController@index');
 
 Route::group(['middleware' => 'auth'], function(){
-	Route::get('/atividades/create', 'AtividadeController@create');
-	Route::post('/atividades', 'AtividadeController@store');
-	Route::get('/atividades/{id}', 'AtividadeController@show');
-	Route::get('/atividades/{id}/edit', 'AtividadeController@edit');
-	Route::put('/atividades/{id}', 'AtividadeController@update');
-	Route::get('/atividades/{id}/delete', 'AtividadeController@delete');
-	Route::delete('/atividades/{id}', 'AtividadeController@destroy');
-	Route::get('/mensagens/create', 'MensagemController@create');
-	Route::post('/mensagens', 'MensagemController@store');
-	Route::get('/mensagens/{id}', 'MensagemController@show');
-	Route::get('/mensagens/{id}/edit', 'MensagemController@edit');
-	Route::put('/mensagens/{id}', 'MensagemController@update');
-	Route::get('/mensagens/{id}/delete', 'MensagemController@delete');
-	Route::delete('/mensagens/{id}', 'MensagemController@destroy');
+	Route::get('/boletim/create', 'BoletimController@create');
+	Route::post('/boletim', 'BoletimController@store');
+	Route::get('/boletim/{id}', 'BoletimController@show');
+	Route::get('/boletim/{id}/edit', 'BoletimController@edit');
+	Route::put('/boletim/{id}', 'BoletimController@update');
+	Route::get('/boletim/{id}/delete', 'BoletimController@delete');
+	Route::delete('/boletim/{id}', 'BoletimController@destroy');
 });
 
 

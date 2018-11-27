@@ -1,10 +1,11 @@
 <?php
 namespace App\Http\Controllers;
-use App\Atividade;
+use App\Boletim;
 use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-class AtividadeController extends Controller
+
+class BoletimController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +17,15 @@ class AtividadeController extends Controller
         //checa se o usuário está cadastrado
         if( Auth::check() ){   
             //retorna somente as atividades cadastradas pelo usuário cadastrado
-            $listaAtividades = Atividade::where('user_id', Auth::id() )->get();     
+            $Boletim = Boletim::where('user_id', Auth::id() )->get();     
         }else{
-            //retorna todas as atividades
-            $listaAtividades = Atividade::all();
+            //retorna todas as Boletims
+            $Boletim = Boletim::all();
 
         }
                 
-        $listaAtividades = Atividade::paginate(1);
-        return view('atividade.list',['atividades' => $listaAtividades]);
+        $Boletim = Boletim::paginate(1);
+        return view('boletim.list',['boletim' => $Boletim]);
     }
     /**
      * Show the form for creating a new resource.
@@ -33,7 +34,7 @@ class AtividadeController extends Controller
      */
     public function create()
     {
-        return view('atividade.create');
+        return view('boletim.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -60,48 +61,48 @@ class AtividadeController extends Controller
         $validador = Validator::make($request->all(), $regras, $messages);
         //executa as validações
         if ($validador->fails()) {
-            return redirect('atividades/create')
+            return redirect('boletim/create')
             ->withErrors($validador)
             ->withInput($request->all);
         }
         //se passou pelas validações, processa e salva no banco...
-        $obj_Atividade = new Atividade();
-        $obj_Atividade->title =       $request['title'];
-        $obj_Atividade->description = $request['description'];
-        $obj_Atividade->scheduledto = $request['scheduledto'];
-        $obj_Atividade->user_id     = Auth::id();
-        $obj_Atividade->save();
-        return redirect('/atividades')->with('success', 'Atividade criada com sucesso!!');
+        $obj_Boletim = new Boletim();
+        $obj_Boletim->title =       $request['title'];
+        $obj_Boletim->description = $request['description'];
+        $obj_Boletim->scheduledto = $request['scheduledto'];
+        $obj_Boletim->user_id     = Auth::id();
+        $obj_Boletim->save();
+        return redirect('/boletim')->with('success', 'Atividade criada com sucesso!!');
     }
     /**
      * Display the specified resource.
      *
-     * @param  \App\Atividade  $atividade
+     * @param  \App\Boletim  $boletim
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $atividade = Atividade::find($id)->with('mensagens')->get()->first();
-        return view('atividade.show',['atividade' => $atividade]);
+        $boletim = Boletim::find($id);
+        return view('boletim.show',['boletim' => $boletim]);
     }
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Atividade  $atividade
+     * @param  \App\Boletim  $boletim
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //busco os dados do obj Atividade que o usuário deseja editar
-        $obj_Atividade = Atividade::find($id);
+        $obj_Boletim = Boletim::find($id);
         
         //verifico se o usuário logado é o dono da Atividade
-        if( Auth::id() == $obj_Atividade->user_id ){
+        if( Auth::id() == $obj_Boletim->user_id ){
             //retorno a tela para edição
-            return view('atividade.edit',['atividade' => $obj_Atividade]);    
+            return view('boletim.edit',['boletim' => $obj_Boletim]);    
         }else{
-            //retorno para a rota /atividades com o erro
-            return redirect('/atividades')->withErrors("Você não tem permissão para editar este item");
+            //retorno para a rota /boletim com o erro
+            return redirect('/boletim')->withErrors("Você não tem permissão para editar este item");
         }
            
     }
@@ -109,7 +110,7 @@ class AtividadeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Atividade  $atividade
+     * @param  \App\Boletim  $boletim
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -131,48 +132,48 @@ class AtividadeController extends Controller
         $validador = Validator::make($request->all(), $regras, $messages);
         //executa as validações
         if ($validador->fails()) {
-            return redirect('atividades/$id/edit')
+            return redirect('boletim/$id/edit')
             ->withErrors($validador)
             ->withInput($request->all);
         }
         //se passou pelas validações, processa e salva no banco...
-        $obj_atividade = Atividade::findOrFail($id);
-        $obj_atividade->title =       $request['title'];
-        $obj_atividade->description = $request['description'];
-        $obj_atividade->scheduledto = $request['scheduledto'];
-        $obj_atividade->user_id     = Auth::id();
-        $obj_atividade->save();
-        return redirect('/atividades')->with('success', 'Atividade alterada com sucesso!!');
+        $obj_Boletim = Boletim::findOrFail($id);
+        $obj_Boletim->title =       $request['title'];
+        $obj_Boletim->description = $request['description'];
+        $obj_Boletim->scheduledto = $request['scheduledto'];
+        $obj_Boletim->user_id     = Auth::id();
+        $obj_Boletim->save();
+        return redirect('/boletim')->with('success', 'Atividade alterada com sucesso!!');
     }
     /**
      * Show the form for deleting the specified resource.
      *
-     * @param  \App\Atividade  $atividade
+     * @param  \App\Boletim $boletim
      * @return \Illuminate\Http\Response
      */
     public function delete($id)
     {
-        $obj_Atividade = Atividade::find($id);
+        $obj_Boletim = Boletim::find($id);
         
         //verifico se o usuário logado é o dono da Atividade
-        if( Auth::id() == $obj_Atividade->user_id ){
+        if( Auth::id() == $obj_Boletim->user_id ){
             //retorno o formulário questionando se ele tem certeza
-            return view('atividade.delete',['atividade' => $obj_Atividade]);    
+            return view('boletim.delete',['boletim' => $obj_Boletim]);    
         }else{
-            //retorno para a rota /atividades com o erro
-            return redirect('/atividades')->withErrors("Você não tem permissão para deletar este item");
+            //retorno para a rota /boletim com o erro
+            return redirect('/boletim')->withErrors("Você não tem permissão para deletar este item");
         }
     }
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Atividade  $atividade
+     * @param  \App\Boletim  $boletim
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $obj_atividade = Atividade::findOrFail($id);
-        $obj_atividade->delete($id);
-        return redirect('/atividades')->with('sucess','Atividade excluída com Sucesso!!');
+        $obj_Boletim = Boletim::findOrFail($id);
+        $obj_Boletim->delete($id);
+        return redirect('/boletim')->with('sucess','Atividade excluída com Sucesso!!');
     }
 }

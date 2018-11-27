@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>Formulário de Cadastro de Atividade</h1>
+<h1>Formulário de Cadastro de Boletim</h1>
 <hr>
 
   <!-- EXIBE MENSAGENS DE ERROS -->
