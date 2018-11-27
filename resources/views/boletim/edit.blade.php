@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<center><h1>Formulário de Edição da boletim {{$boletim->id}}</h1>
+<center><h1>Editar nota de {{$boletim->class}} do boletim</h1>
 <hr>
 
   <!-- EXIBE MENSAGENS DE ERROS -->
@@ -19,9 +19,16 @@
 <form action="/boletim/{{$boletim->id}}" method="POST">
 	{{ csrf_field() }}
 	{{ method_field('PUT') }}
-	Título: 		<input type="text" name="title" value="{{$boletim->title}}"><br><br>
-	Descrição:		<input type="text" name="description" value="{{$boletim->description}}"><br><br>
-	Agendado para:  <input type="datetime-local" name="scheduledto" value="{{$boletim->scheduledto}}"><br><br>
+	Matrícula: <input type="text" name="registration" value="{{$boletim->registration}}">
+	<br>
+	Aluno: <input type="text" name="user" value="{{$boletim->user}}">
+	<br>
+	Disciplina:	<input type="text" name="class" value="{{$boletim->class}}">
+	<br>
+	Nota: <input type="text" name="note" value="{{$boletim->note}}">
+	<br>
+	Trimestre/Semestre: <input type="text" name="period" value="{{$boletim->period}}">
+	<br>
 	<input type="submit" value="Salvar">
 </form>
 </center>

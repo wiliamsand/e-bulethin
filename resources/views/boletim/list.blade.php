@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<p class="h1 text-center">Lista de boletim</p>
+<p class="h1 text-center">Boletim</p>
 
   <!-- EXIBE MENSAGENS DE SUCESSO -->
   @if(\Session::has('success'))
@@ -29,8 +29,8 @@
   <br>
   <div class="row">
     <div class="col-md-12">
-     <p class="h3"><a href="/boletim/{{$b->id}}">{{$boletim->title}}</a></p>
-     <p class="h5">Agendado para: <b>{{\Carbon\Carbon::parse($boletim->scheduledto)->format('d/m/Y h:m')}}</b></p>
+     <p class="h3"><a href="/boletim/{{$b->id}}">{{$boletim->class}}</a></p>
+     <p class="h5"></p>
 
       @auth
         <p class="h7">Ações: 
@@ -57,7 +57,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <p class="text-center"><a class="btn btn-primary" href="/boletim/create">Criar novo registro</a></p>
+      <p class="text-center"><a class="btn btn-primary" href="/boletim/create">Criar nova nota no boletim</a></p>
     </div>
 </div>
 </div>

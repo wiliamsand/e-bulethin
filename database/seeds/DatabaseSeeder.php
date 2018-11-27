@@ -11,8 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(boletim
-            TableSeeder::class);
+        $this->call(boletimTableSeeder::class);
     }
 }
 
