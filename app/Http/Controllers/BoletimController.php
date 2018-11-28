@@ -47,15 +47,16 @@ class BoletimController extends Controller
         //faço as validações dos campos
         //vetor com as mensagens de erro
         $messages = array(
-            'title.required' => 'É obrigatório um título para a atividade',
-            'description.required' => 'É obrigatória uma descrição para a atividade',
-            'scheduledto.required' => 'É obrigatório o cadastro da data/hora da atividade',
+            'registration.required' => 'É obrigatório informar a matrícula do aluno',
+            'user.required' => 'É obrigatório informar o nome do aluno',
+            'class.required' => 'É obrigatório informar a disciplina',
+            'note.required' => 'É obrigatório informar uma nota',
+            'period.required' => 'É obrigatório informar o Trimestre/semestre',
         );
         //vetor com as especificações de validações
         $regras = array(
-            'title' => 'required|string|max:255',
-            'description' => 'required',
-            'scheduledto' => 'required|string',
+            'registration' => 'required|integer|max:7',
+            'period' => 'required|integer',
         );
         //cria o objeto com as regras de validação
         $validador = Validator::make($request->all(), $regras, $messages);
@@ -67,12 +68,13 @@ class BoletimController extends Controller
         }
         //se passou pelas validações, processa e salva no banco...
         $obj_Boletim = new Boletim();
-        $obj_Boletim->title =       $request['title'];
-        $obj_Boletim->description = $request['description'];
-        $obj_Boletim->scheduledto = $request['scheduledto'];
-        $obj_Boletim->user_id     = Auth::id();
+        $obj_Boletim->registration = $request['user'];
+        $obj_Boletim->user = $request['user'];
+        $obj_Boletim->class = $request['class'];
+        $obj_Boletim->note = $request['note'];
+        $obj_Boletim->period = $request['period'];
         $obj_Boletim->save();
-        return redirect('/boletim')->with('success', 'Atividade criada com sucesso!!');
+        return redirect('/boletim')->with('success', '');
     }
     /**
      * Display the specified resource.
@@ -102,7 +104,7 @@ class BoletimController extends Controller
             return view('boletim.edit',['boletim' => $obj_Boletim]);    
         }else{
             //retorno para a rota /boletim com o erro
-            return redirect('/boletim')->withErrors("Você não tem permissão para editar este item");
+            return redirect('/boletim')->withErrors("Você não tem permissão para acessar este boletim");
         }
            
     }
@@ -118,15 +120,16 @@ class BoletimController extends Controller
         //faço as validações dos campos
         //vetor com as mensagens de erro
         $messages = array(
-            'title.required' => 'É obrigatório um título para a atividade',
-            'description.required' => 'É obrigatória uma descrição para a atividade',
-            'scheduledto.required' => 'É obrigatório o cadastro da data/hora da atividade',
+            'registration.required' => 'É obrigatório informar a matrícula do aluno',
+            'user.required' => 'É obrigatório informar o nome do aluno',
+            'class.required' => 'É obrigatório informar a disciplina',
+            'note.required' => 'É obrigatório informar uma nota',
+            'period.required' => 'É obrigatório informar o Trimestre/semestre',
         );
         //vetor com as especificações de validações
         $regras = array(
-            'title' => 'required|string|max:255',
-            'description' => 'required',
-            'scheduledto' => 'required|string',
+            'registration' => 'required|integer|max:7',
+            'period' => 'required|integer',
         );
         //cria o objeto com as regras de validação
         $validador = Validator::make($request->all(), $regras, $messages);
@@ -138,12 +141,13 @@ class BoletimController extends Controller
         }
         //se passou pelas validações, processa e salva no banco...
         $obj_Boletim = Boletim::findOrFail($id);
-        $obj_Boletim->title =       $request['title'];
-        $obj_Boletim->description = $request['description'];
-        $obj_Boletim->scheduledto = $request['scheduledto'];
-        $obj_Boletim->user_id     = Auth::id();
+        $obj_Boletim->registration = $request['user'];
+        $obj_Boletim->user = $request['user'];
+        $obj_Boletim->class = $request['class'];
+        $obj_Boletim->note = $request['note'];
+        $obj_Boletim->period = $request['period'];
         $obj_Boletim->save();
-        return redirect('/boletim')->with('success', 'Atividade alterada com sucesso!!');
+        return redirect('/boletim')->with('success', 'Nota alterada com sucesso!!');
     }
     /**
      * Show the form for deleting the specified resource.
@@ -155,13 +159,13 @@ class BoletimController extends Controller
     {
         $obj_Boletim = Boletim::find($id);
         
-        //verifico se o usuário logado é o dono da Atividade
+        //verifico se o usuário logado é administrador
         if( Auth::id() == $obj_Boletim->user_id ){
             //retorno o formulário questionando se ele tem certeza
             return view('boletim.delete',['boletim' => $obj_Boletim]);    
         }else{
             //retorno para a rota /boletim com o erro
-            return redirect('/boletim')->withErrors("Você não tem permissão para deletar este item");
+            return redirect('/boletim')->withErrors("Você não tem permissão para deletar esta nota");
         }
     }
     /**
@@ -174,6 +178,6 @@ class BoletimController extends Controller
     {
         $obj_Boletim = Boletim::findOrFail($id);
         $obj_Boletim->delete($id);
-        return redirect('/boletim')->with('sucess','Atividade excluída com Sucesso!!');
+        return redirect('/boletim')->with('sucess','Nota excluída com Sucesso!!');
     }
 }

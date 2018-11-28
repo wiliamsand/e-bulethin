@@ -16,7 +16,7 @@ class AddBoletimTable extends Migration
         Schema::create('Boletim', function (Blueprint $table) {
 
             $table->integer('registration');           //código identificador
-            $table->Sting('user');           //código identificador
+            $table->String('user');           //código identificador
             $table->string('class');            //título da atividade
             $table->integer('note');      //descrição da atividade
             $table->integer('period');    //agendado para

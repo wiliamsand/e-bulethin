@@ -18,11 +18,11 @@
 
 <form action="/boletim" method="post">
 	{{ csrf_field() }}
-	Matrícula: <input type="text" name="registration"><br>
-	Aluno: <input type="text" name="user"><br>
-	Disciplina:	<input type="text" name="class"><br>
-	Nota: <input type="text" name="note"><br>
-	Trimestre/Semestre: <input type="text" name="period"><br>
+	Matrícula: <input type="text" name="registration"><br><br>	
+	Aluno: <input type="text" name="user"><br><br>
+	Disciplina:	<input type="text" name="class"><br><br>
+	Nota: <input type="text" name="note"><br><br>
+	Trimestre/Semestre: <input type="text" name="period"><br><br>
 	<input type="submit" value="Salvar">
 </form>
 @endsection
