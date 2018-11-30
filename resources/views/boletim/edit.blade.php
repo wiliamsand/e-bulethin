@@ -21,11 +21,11 @@
 	{{ method_field('PUT') }}
 	Matrícula: <input type="text" name="registration" value="{{$boletim->registration}}">
 	<br>
-	Aluno: <input type="text" name="user" value="{{$boletim->user}}">
-	<br>
-	Disciplina:	<input type="text" name="class" value="{{$boletim->class}}">
+	Aluno: <input type="text" name="name" value="{{$boletim->name}}">
 	<br>
 	Nota: <input type="text" name="note" value="{{$boletim->note}}">
+	<br>
+	Disciplina:	<input type="text" name="class" value="{{$boletim->class}}">
 	<br>
 	Trimestre/Semestre: <input type="text" name="period" value="{{$boletim->period}}">
 	<br>

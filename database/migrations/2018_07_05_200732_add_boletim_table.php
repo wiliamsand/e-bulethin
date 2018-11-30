@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class AddBoletimTable extends Migration
 {
     /**
@@ -13,17 +11,18 @@ class AddBoletimTable extends Migration
      */
     public function up()
     {
-        Schema::create('Boletim', function (Blueprint $table) {
+        Schema::create('boletim', function (Blueprint $table) {
+            $table->increments('id');           //código identificador
+            $table->integer('registration');            //título da nota
+            $table->string('name');      //descrição da nota
+            $table->integer('note');    //hora
+            $table->string('class');    //data
+            $table->integer('period');    //hora
+            $table->integer('user_id')->unsigned(); //user ID
+            $table->timestamps();       //registro created_at e updated_at
 
-            $table->integer('registration');           //código identificador
-            $table->String('user');           //código identificador
-            $table->string('class');            //título da atividade
-            $table->integer('note');      //descrição da atividade
-            $table->integer('period');    //agendado para
-            $table->timestamps();               //registro created_at e updated_at
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -31,7 +30,7 @@ class AddBoletimTable extends Migration
      */
     public function down()
     {
-        Schema::table('Boletim', function (Blueprint $table) {
+        Schema::table('boletim', function (Blueprint $table) {
             //
         });
     }

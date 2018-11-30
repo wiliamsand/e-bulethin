@@ -29,7 +29,7 @@
   <br>
   <div class="row">
     <div class="col-md-12">
-     <p class="h3"><a href="/boletim/{{$b->id}}">{{$boletim->class}}</a></p>
+     <p class="h3"><a href="/boletim/{{$b->id}}">{{$b->class}}</a></p>
      <p class="h5"></p>
 
       @auth

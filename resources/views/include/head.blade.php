@@ -2,8 +2,6 @@
 <meta name="description" content="Sistema de gerenciamento de Atividades">
 <meta name="author" content="Tiago">
 
-<title>Gerenciador de Atividades</title>
-
 <!-- load fontwesome -->
 <script src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"></script>
 
