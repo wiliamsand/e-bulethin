@@ -29,8 +29,8 @@
   <br>
   <div class="row">
     <div class="col-md-12">
-     <p class="h3"><a href="/boletim/{{$b->id}}">{{$b->class}}</a></p>
-     <p class="h5"></p>
+     <p class="h7"><a href="/boletim/{{$b->id}}">{{$b->name}}</a></p>
+     <p class="h7"></p>
 
       @auth
         <p class="h7">Ações: 

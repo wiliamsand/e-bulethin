@@ -8,14 +8,6 @@
 			<li class="nav-item active">
 				<a class="nav-link" href="/home"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
 			</li>
-			
-
-			<li class="nav-item">
-				<a class="nav-link" href="/boletim" id="help" aria-haspopup="true" aria-expanded="false">Listar boletim</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/boletim/create" id="help" aria-haspopup="true" aria-expanded="false">Criar boletim</a>
-			</li>
 		</ul>
 
 		<!-- Right Side Of Navbar -->

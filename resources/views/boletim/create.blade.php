@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>Cadastro de Notas do Boletim</h1>
+<h1 class="h7">Cadastro de Notas do Boletim</h1>
 <hr>
 
   <!-- EXIBE MENSAGENS DE ERROS -->
@@ -18,11 +18,11 @@
 
 <form action="/boletim" method="post">
 	{{ csrf_field() }}
-	Matrícula: <input type="text" name="registration"><br><br>	
-	Aluno: <input type="text" name="name"><br><br>
-	Nota: <input type="text" name="note"><br><br>
-	Disciplina:	<input type="text" name="class"><br><br>
-	Trimestre/Semestre: <input type="text" name="period"><br><br>
-	<input type="submit" value="Salvar">
+	<p class = "h7">Matrícula:</p> <input type="text" name="registration"><br><br>	
+	<p class = "h7">Aluno:</p> <input type="text" name="name"><br><br>
+	<p class = "h7">Nota:</p> <input type="text" name="note"><br><br>
+	<p class = "h7">Disciplina:</p>	<input type="text" name="class"><br><br>
+	<p class = "h7">Trimestre/Semestre:</p> <input type="text" name="period"><br><br>
+	<input class="btn" type="submit" value="Salvar">
 </form>
 @endsection

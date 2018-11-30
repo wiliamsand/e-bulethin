@@ -1,15 +1,15 @@
 @extends('layouts.app')
 @section('content')
 
-<h3> {{$boletim->class}} </h3>
+<h3 class = "h7"> {{$boletim->name}} </h3>
 <hr>
-<p><b>Aluno:</b> <p>{{$boletim->name}}</p>
+<p class = "h7"><b>Aluno:</b> <p class = "h7">{{$boletim->name}}</p>
 
-<p><b>Nota:</b> <p>{{$boletim->note}}</p>
+<p class = "h7"><b>Nota:</b> <p class = "h7">{{$boletim->note}}</p>
 
-<p><b>Matrícula:</b> <p>{{$boletim->registration}}</p>
+<p class = "h7"><b>Matrícula:</b> <p class = "h7">{{$boletim->registration}}</p>
 
-<p><b>Trimestre/Semestre:</b> <p>{{$boletim->period}}</p>
+<p class = "h7"><b>Trimestre/Semestre:</b> <p class = "h7">{{$boletim->period}}</p>
 
 
 

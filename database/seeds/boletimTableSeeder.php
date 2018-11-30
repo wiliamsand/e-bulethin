@@ -11,9 +11,27 @@ class boletimTableSeeder extends Seeder
     public function run()
     {
         Boletim::create([
-            'registration' => '7070707',
-            'name' => 'Athirson',
-            'note' => '10',
+            'registration' => '0000000',
+            'name' => 'Ricardo',
+            'note' => '7',
+            'class' => 'Matemática',
+            'period' => '3',
+            'user_id' => 1
+        ]);
+
+         Boletim::create([
+            'registration' => '0000001',
+            'name' => 'Wilian',
+            'note' => '7',
+            'class' => 'Matemática',
+            'period' => '3',
+            'user_id' => 1
+        ]);
+
+          Boletim::create([
+            'registration' => '0000002',
+            'name' => 'Yuri',
+            'note' => '7',
             'class' => 'Matemática',
             'period' => '3',
             'user_id' => 1
